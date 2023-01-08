@@ -7,16 +7,21 @@ using UnityEngine;
 public class spawner : MonoBehaviour
 {
     public GameObject obj;
-    
+        
+
     // Start is called before the first frame update
     void Start()
     {
         //psuedo = new NewBehaviourScript();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        
+
         if (Input.GetKeyDown("a"))
         {
             function();
