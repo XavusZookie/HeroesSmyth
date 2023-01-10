@@ -5,7 +5,7 @@ using UnityEngine;
 public class sword : MonoBehaviour
 {
 
-    public string name;
+    public string swordname;
     public string mold;
     public string affinity;
     public string quality;
@@ -25,10 +25,21 @@ public class sword : MonoBehaviour
 
     bool finished;
 
+    
+    public GameObject Scimitar;
+    public GameObject Rapier;
+    public GameObject SuperKatana;
+    public GameObject Longsword;
+    public GameObject UltraGreatsword;
+    public GameObject Shortsword;
+    public GameObject Sabre;
+
+ 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        randomize();
     }
 
     // Update is called once per frame
@@ -39,49 +50,83 @@ public class sword : MonoBehaviour
         randomize_affinity();
         randomize_quality();
         randomize_level();
-        randomize_durability();
+        calculate_durability();
         randomize_affinity_tier();
         randomize_base_stats();
-        randomize_attack_power();
-        randomize_attack_speed();
-        randomizeaffinity_power();
-        
+        calculate_attack_power();
+        calculate_attack_speed();
+        calculate_affinity_power();
+
 
     }
-
+  
     void randomize_name()
     {
+        string temp = "abcdefghijklmnopqrstuvwxyz";
+        int tempnum;
+        for (int i = 0;i < Random.Range(4,11); i++)
+        {
+            tempnum = Random.Range(0, 26);
 
+            swordname = swordname + temp.Substring(tempnum, 1);
+        }
     }
 
     void randomize_mold()
     {
         int Rmold = Random.Range(0, 7);
-
-        switch(Rmold)
+        GameObject swordmodel;
+        switch (Rmold)
         {
             case 0:              //Scimitar
                 mold = "Scimitar";
+                swordmodel = Instantiate(Scimitar, this.transform);
+
+                swordmodel.transform.parent = this.transform;
                 break;
             case 1:              //Rapier
                 mold = "Rapier";
+               
+                swordmodel = Instantiate(Rapier, this.transform);
+
+                swordmodel.transform.parent = this.transform;
                 break;
             case 2:              //Super Katana
                 mold = "Super Katana";
+                
+                swordmodel = Instantiate(SuperKatana, this.transform);
+
+                swordmodel.transform.parent = this.transform;
                 break;
             case 3:              //Longsword
                 mold = "Longsword";
+                
+                swordmodel = Instantiate(Longsword, this.transform);
+
+                swordmodel.transform.parent = this.transform;
                 break;
             case 4:              //Ultra Greatsword
                 mold = "Ultra Greatsword";
+                
+                swordmodel = Instantiate(UltraGreatsword, this.transform);
+
+                swordmodel.transform.parent = this.transform;
                 break;
             case 5:              //Shortsword
                 mold = "Shortsword";
+                
+                swordmodel = Instantiate(Shortsword, this.transform);
+
+                swordmodel.transform.parent = this.transform;
                 break;
-            case 6:              //Knights Sword
-                mold = "Knights Sword";
+            case 6:              //Knights Sword now Sabre
+                mold = "Sabre";
+                
+                swordmodel = Instantiate(Sabre, this.transform);
+
+                swordmodel.transform.parent = this.transform;
                 break;
-            
+
         }
     }
 
@@ -136,7 +181,7 @@ public class sword : MonoBehaviour
                 break;
             case 4:              //divine
                 quality = "Master";
-                if(Random.Range(0, 100) == 0)
+                if (Random.Range(0, 100) == 0)
                 {
                     quality = "Legendary";
                 }
@@ -151,9 +196,9 @@ public class sword : MonoBehaviour
         level = Rlevel;
     }
 
-    void randomize_durability()
+    void calculate_durability()
     {
-     
+
     }
 
     void randomize_affinity_tier()
@@ -162,7 +207,7 @@ public class sword : MonoBehaviour
 
         affinity_tier = Raffinitytier;
 
-        if(affinity == "None")
+        if (affinity == "None")
         {
             affinity_tier = 0;
         }
@@ -179,7 +224,7 @@ public class sword : MonoBehaviour
         switch (Rorder)//first
         {
             case 0:              //range
-                Rorder = Random.Range(0, Rtotal-1);
+                Rorder = Random.Range(0, Rtotal - 1);
 
                 Rrange = Random.Range(0, total);
 
@@ -221,7 +266,7 @@ public class sword : MonoBehaviour
 
                 break;
             case 1:              //speed
-                Rorder = Random.Range(0, Rtotal-1);
+                Rorder = Random.Range(0, Rtotal - 1);
                 Rspeed = Random.Range(0, total);
 
                 speed = Rspeed;
@@ -260,7 +305,7 @@ public class sword : MonoBehaviour
                 }
                 break;
             case 2:              //weight 
-                Rorder = Random.Range(0, Rtotal-1);
+                Rorder = Random.Range(0, Rtotal - 1);
 
                 Rweight = Random.Range(0, total);
 
@@ -302,20 +347,35 @@ public class sword : MonoBehaviour
                 break;
 
         }//end first
-    }
 
-    void randomize_attack_power()
-    {
+        this.transform.localScale = new Vector3(this.transform.localScale.x * weight / 100, this.transform.localScale.y * range/100, this.transform.localScale.z);
 
     }
 
-    void randomize_attack_speed()
+    void calculate_attack_power()
     {
+        attack_power = weight * level;
+    }
+
+    void calculate_attack_speed()
+    {
+        attack_speed = speed * level;
 
     }
 
-    void randomizeaffinity_power()
+    void calculate_affinity_power()
     {
+        if (affinity == "None")
+        {
+            affinity_power = 0;
+        }
+        else
+        {
+            affinity_power = attack_power * .5f;
+            attack_power = attack_power * .5f;
+
+        }
+
 
     }
 

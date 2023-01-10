@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5698945855706788791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9276426, y: -5.42, z: -16.63}
-  m_LocalScale: {x: 0.07526235, y: 0.9923554, z: 0.07526235}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5698945855706788791}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -109,7 +109,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5698945855706788791}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -126,3 +126,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff9feda3a248bc43bca61d48e457e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordname: 
+  mold: 
+  affinity: 
+  quality: 
+  level: 0
+  durability: 0
+  affinity_tier: 0
+  range: 0
+  speed: 0
+  weight: 0
+  total: 101
+  attack_power: 0
+  attack_speed: 0
+  affinity_power: 0
+  Scimitar: {fileID: 100006, guid: 0af636dcf564eb140b31a01bf4b6a9fd, type: 3}
+  Rapier: {fileID: 100006, guid: 10329765d2451e540b1dae01df03c59c, type: 3}
+  SuperKatana: {fileID: 100006, guid: 47377a9aa6b50294a865e21fe968af4d, type: 3}
+  Longsword: {fileID: 100006, guid: 6a0eedfe1b2e14d47b276e72159e85b1, type: 3}
+  UltraGreatsword: {fileID: 100004, guid: d096c2dbc4ba8b344a7752253f0049ad, type: 3}
+  Shortsword: {fileID: 100006, guid: a45a25ec0193de54fbd3efca6e19755e, type: 3}
+  Sabre: {fileID: 100006, guid: b9432b6a4a78c64449366f08c7196deb, type: 3}

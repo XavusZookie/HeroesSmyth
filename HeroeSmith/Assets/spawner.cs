@@ -22,7 +22,7 @@ public class spawner : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown("a"))
+        if (Input.GetMouseButtonUp(0))
         {
             function();
         }
@@ -30,6 +30,6 @@ public class spawner : MonoBehaviour
 
     public void function()
     {
-        Instantiate(obj);
+        Instantiate(obj, new Vector3(this.transform.position.x, this.transform.position.y , this.transform.position.z- 4), Quaternion.identity);
     }
 }
