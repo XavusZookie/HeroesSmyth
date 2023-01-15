@@ -348,7 +348,7 @@ public class sword : MonoBehaviour
 
         }//end first
 
-        this.transform.localScale = new Vector3(this.transform.localScale.x * weight / 100, this.transform.localScale.y * range/100, this.transform.localScale.z);
+        this.transform.localScale = new Vector3(this.transform.localScale.x * (.3f + weight / 100), this.transform.localScale.y *(.3f + range/100), this.transform.localScale.z * (.3f + weight / 100));
 
     }
 
