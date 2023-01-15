@@ -6,7 +6,10 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
+
+    public Canvas selector;
     public GameObject obj;
+    public mouselook mover;
         
 
     // Start is called before the first frame update
@@ -31,5 +34,20 @@ public class spawner : MonoBehaviour
     public void function()
     {
         Instantiate(obj, new Vector3(this.transform.position.x, this.transform.position.y , this.transform.position.z- 4), Quaternion.identity);
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        if (Input.GetMouseButtonUp(1))
+            {
+                selector.gameObject.SetActive(true);
+            
+            }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+                selector.gameObject.SetActive(false);
+
     }
 }
