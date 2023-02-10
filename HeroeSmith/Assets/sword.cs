@@ -7,6 +7,8 @@ public class sword : MonoBehaviour
 
     public string swordname;
     public string mold;
+    public int chosenmold;
+
     public string affinity;
     public string quality;
 
@@ -33,17 +35,18 @@ public class sword : MonoBehaviour
     public GameObject UltraGreatsword;
     public GameObject Shortsword;
     public GameObject Sabre;
+    public GameObject swordmodel;
 
- 
+
 
     // Start is called before the first frame update
     void Start()
     {
-        randomize();
+        //randomize();
     }
 
     // Update is called once per frame
-    void randomize()
+    public void randomize()
     {
         randomize_name();
         randomize_mold();
@@ -59,7 +62,24 @@ public class sword : MonoBehaviour
 
 
     }
-  
+
+    public void choosesword()
+    {
+        randomize_name();
+        choose_mold();
+        randomize_affinity();
+        randomize_quality();
+        randomize_level();
+        calculate_durability();
+        randomize_affinity_tier();
+        randomize_base_stats();
+        calculate_attack_power();
+        calculate_attack_speed();
+        calculate_affinity_power();
+
+
+    }
+
     void randomize_name()
     {
         string temp = "abcdefghijklmnopqrstuvwxyz";
@@ -69,6 +89,68 @@ public class sword : MonoBehaviour
             tempnum = Random.Range(0, 26);
 
             swordname = swordname + temp.Substring(tempnum, 1);
+        }
+    }
+
+    public void choose_mold()
+    {
+
+
+        int Rmold = chosenmold;
+        //GameObject swordmodel;
+
+
+        switch (Rmold)
+        {
+            case 0:              //Scimitar
+                mold = "Scimitar";
+                swordmodel = Instantiate(Scimitar, this.transform);
+
+                swordmodel.transform.parent = this.transform;
+                break;
+            case 1:              //Rapier
+                mold = "Rapier";
+
+                swordmodel = Instantiate(Rapier, this.transform);
+
+                swordmodel.transform.parent = this.transform;
+                break;
+            case 2:              //Super Katana
+                mold = "Super Katana";
+
+                swordmodel = Instantiate(SuperKatana, this.transform);
+
+                swordmodel.transform.parent = this.transform;
+                break;
+            case 3:              //Longsword
+                mold = "Longsword";
+
+                swordmodel = Instantiate(Longsword, this.transform);
+
+                swordmodel.transform.parent = this.transform;
+                break;
+            case 4:              //Ultra Greatsword
+                mold = "Ultra Greatsword";
+
+                swordmodel = Instantiate(UltraGreatsword, this.transform);
+
+                swordmodel.transform.parent = this.transform;
+                break;
+            case 5:              //Shortsword
+                mold = "Shortsword";
+
+                swordmodel = Instantiate(Shortsword, this.transform);
+
+                swordmodel.transform.parent = this.transform;
+                break;
+            case 6:              //Knights Sword now Sabre
+                mold = "Sabre";
+
+                swordmodel = Instantiate(Sabre, this.transform);
+
+                swordmodel.transform.parent = this.transform;
+                break;
+
         }
     }
 
