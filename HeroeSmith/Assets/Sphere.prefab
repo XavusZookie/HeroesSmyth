@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6745337446787560295}
   - component: {fileID: 8441895282516074907}
   - component: {fileID: 4000872446254434231}
+  - component: {fileID: 30157705510087885}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -31,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -128,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordname: 
   mold: 
+  chosenmold: 0
   affinity: 
   quality: 
   level: 0
@@ -147,3 +151,28 @@ MonoBehaviour:
   UltraGreatsword: {fileID: 100004, guid: d096c2dbc4ba8b344a7752253f0049ad, type: 3}
   Shortsword: {fileID: 100006, guid: a45a25ec0193de54fbd3efca6e19755e, type: 3}
   Sabre: {fileID: 100006, guid: b9432b6a4a78c64449366f08c7196deb, type: 3}
+  swordmodel: {fileID: 0}
+--- !u!114 &30157705510087885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698945855706788791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ca9faaba42c1744a0f58f9726032f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunScript: {fileID: 0}
+  rb: {fileID: 6745337446787560295}
+  coll: {fileID: 0}
+  player: {fileID: 0}
+  gunContainer: {fileID: 0}
+  fpsCam: {fileID: 0}
+  pickUpRange: 3.35
+  dropForwardForce: 1
+  dropUpwardForce: 1
+  equipped: 0
+  canattack: 0
+  cooldown: 0.25
